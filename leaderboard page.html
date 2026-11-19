@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>Name | Leaderboard</title>
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=SZIHSF0A9LYgmxoVs4tOzTPapz2XpZqw9n0qxNt9mT85c699w6KH5ELd3XJsEORi2tzVdBCrygeIgak8wxZpkwMnyix2ntU6IKZFlEv8DsAj6JbQ3zdhfB8mq8rNsq0CfBKz_YUi3OR-4E1Ge-PjyIE6z_5SQvVkuE8rbkxi6Sg6sYopXnpQ2HdOjNhKJI9GSgU15uxsRXe2fHo--RlOYf48mx-f6baSjz5ZIE2Kv1OvNSc5lMLa5QxrJUJ5Dr5czhMbfZqS3rd2gV8tLC3sN7WxQ6nhtr1Pv3mFkWFvpDpgasZFV-ks8BFFvANB1JB5YdG1_RRxFfXE9CCByE_zfQ" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jaGF0Z3B0LmNvbS9iYWNrZW5kLWFwaS9lc3R1YXJ5L2NvbnRlbnQ_aWQ9ZmlsZV8wMDAwMDAwMDQ2Yzg4MjEwOWFiYzU3MjRlODlmODQ5ZiZmbj1sZWFkZXJib2FyZCUyMHBhZ2UuaHRtbCZjZD1hdHRhY2htZW50JnRzPTQ5ODYyMCZwPWZzJmNpZD0xJnNpZz0xMWM0NWIxMjI5NzUzY2RjMWZmMGY1YzgwNjdhNWNiNmI5MDMzN2I1MTI1MWI5MjA3NzNjMWFjMDA3NmRmZjA1JnY9MA"/><style>
+    /* Mobile-first EcoMate coursework wireframe, implemented in plain CSS. */
+    :root {
+      color-scheme: light;
+      font-family: Arial, Helvetica, sans-serif;
+      font-synthesis: none;
+      color: #252525;
+      background: #ffffff;
+      -webkit-font-smoothing: antialiased;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    button { font: inherit; cursor: pointer; }
+    button:focus-visible { outline: 2px solid #26734f; outline-offset: 3px; }
+
+    .screen {
+      --side: 82px;
+      --line-side: 60px;
+      width: 100%;
+      max-width: 496px;
+      min-height: max(770px, 100dvh);
+      margin-inline: auto;
+      padding-top: 23px;
+      position: relative;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+    .top-rule {
+      height: 3px;
+      margin: 0 var(--line-side);
+      border-top: 2px solid #d2d2d2;
+      border-bottom: 1px solid #eeeeee;
+    }
+    .brand {
+      margin: 19px var(--side) 0;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 24px;
+    }
+    main {
+      flex: 1;
+      padding: 0 var(--side) 42px;
+    }
+    h1 {
+      font-size: 25px;
+      line-height: 30px;
+      font-weight: 700;
+      letter-spacing: -0.4px;
+      margin: 23px 0 3px;
+    }
+    .subtitle {
+      color: #777;
+      font-size: 13px;
+      line-height: 17px;
+      margin: 0;
+    }
+
+    .tabs {
+      border-bottom: 2px solid #565656;
+      display: flex;
+      gap: 27px;
+      margin-top: 31px;
+      min-height: 28px;
+      align-items: flex-start;
+    }
+    .tab {
+      border: none;
+      border-bottom: 2px solid transparent;
+      padding: 0 0 9px;
+      margin-bottom: -2px;
+      background: transparent;
+      color: #303030;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 18px;
+    }
+    .tab[aria-selected="true"] { border-bottom-color: #565656; }
+    .tab:hover { color: #17653b; }
+    .panel { margin-top: 20px; }
+    .hidden { display: none !important; }
+
+    .summary-card, .leader-row, .house-message {
+      border: 1px solid #d7d7d7;
+      background: #f8f8f8;
+      border-radius: 8px;
+    }
+    .summary-card {
+      height: 73px;
+      display: grid;
+      grid-template-columns: 95px 1fr;
+      align-items: start;
+      padding: 15px 14px 0;
+    }
+    .summary-card .rank {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 30px;
+    }
+    .summary-card .points {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 26px;
+      color: #333;
+    }
+    .leader-list {
+      padding: 0;
+      margin: 17px 0 0;
+      display: grid;
+      gap: 12px;
+      list-style: none;
+    }
+    .leader-row {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr) 81px;
+      height: 52px;
+      padding: 0 14px;
+      align-items: center;
+      font-size: 14px;
+    }
+    .position { font-weight: 600; }
+    .username { overflow-wrap: anywhere; }
+    .score { color: #6e6e6e; font-size: 12px; }
+    .footnote {
+      color: #919191;
+      font-size: 11px;
+      line-height: 16px;
+      margin: 29px 0 0;
+    }
+    .house-message {
+      padding: 18px 16px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: #555;
+    }
+    .house-message strong { display: block; color: #333; margin-bottom: 4px; }
+    .bottom-rule {
+      border-top: 1px solid #eaeaea;
+      margin: 0 var(--line-side);
+    }
+
+    /* Keep the same wireframe style but provide more room on narrow phones. */
+    @media (max-width: 440px) {
+      .screen { --side: 24px; --line-side: 24px; }
+      .summary-card { grid-template-columns: 95px 1fr; }
+      .leader-row { grid-template-columns: 42px minmax(0, 1fr) 75px; }
+    }
+    @media (min-width: 700px) {
+      body { background: #f1f2f1; padding: 25px 0; }
+      .screen { border: 1px solid #e3e3e3; border-radius: 16px; box-shadow: 0 12px 36px #0000000d; overflow: hidden; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen">
+    <div class="top-rule" aria-hidden="true"></div>
+    <header class="brand">Name</header>
+
+    <main>
+      <h1>Leaderboard</h1>
+      <p class="subtitle">Celebrate progress with your community.</p>
+
+      <div class="tabs" role="tablist" aria-label="Leaderboard category">
+        <button type="button" class="tab" id="individual-tab"
+                role="tab" aria-controls="individual-panel"
+                aria-selected="true" tabindex="0">Individuals</button>
+        <button type="button" class="tab" id="houses-tab"
+                role="tab" aria-controls="houses-panel"
+                aria-selected="false" tabindex="-1">Houses</button>
+      </div>
+
+      <section class="panel" id="individual-panel" role="tabpanel"
+               aria-labelledby="individual-tab">
+        <div class="summary-card" aria-label="Your overall ranking: number 10, with 125 points">
+          <span class="rank">#10</span>
+          <span class="points">125 points</span>
+        </div>
+
+        <ol class="leader-list" aria-label="Individual leaderboard">
+          <li class="leader-row">
+            <span class="position">1</span><span class="username">Nathan</span><span class="score">420 pts</span>
+          </li>
+          <li class="leader-row">
+            <span class="position">2</span><span class="username">Kieran</span><span class="score">385 pts</span>
+          </li>
+          <li class="leader-row">
+            <span class="position">3</span><span class="username">Mohammed</span><span class="score">340 pts</span>
+          </li>
+          <li class="leader-row">
+            <span class="position">4</span><span class="username">Sheikha</span><span class="score">290 pts</span>
+          </li>
+          <li class="leader-row">
+            <span class="position">5</span><span class="username">You</span><span class="score">125 pts</span>
+          </li>
+        </ol>
+
+        <p class="footnote">Your username is shown. To make changes go to settings</p>
+      </section>
+
+      <section class="panel hidden" id="houses-panel" role="tabpanel"
+               aria-labelledby="houses-tab" hidden>
+        <div class="house-message">
+          <strong>House leaderboard</strong>
+          House rankings will appear here when the backend and household teams are connected.
+        </div>
+      </section>
+    </main>
+    <div class="bottom-rule" aria-hidden="true"></div>
+  </div>
+
+  <script>
+    // Frontend-only prototype. The eventual Flask/MySQL backend supplies real rankings.
+    const individualTab = document.getElementById("individual-tab");
+    const housesTab = document.getElementById("houses-tab");
+    const individualPanel = document.getElementById("individual-panel");
+    const housesPanel = document.getElementById("houses-panel");
+    function switchTab(category) {
+      const individuals = category === "individuals";
+      individualTab.setAttribute("aria-selected", String(individuals));
+      housesTab.setAttribute("aria-selected", String(!individuals));
+      individualTab.tabIndex = individuals ? 0 : -1;
+      housesTab.tabIndex = individuals ? -1 : 0;
+      individualPanel.hidden = !individuals;
+      housesPanel.hidden = individuals;
+      individualPanel.classList.toggle("hidden", !individuals);
+      housesPanel.classList.toggle("hidden", individuals);
+    }
+    individualTab.addEventListener("click", () => switchTab("individuals"));
+    housesTab.addEventListener("click", () => switchTab("houses"));
+    [individualTab, housesTab].forEach(tab => {
+      tab.addEventListener("keydown", event => {
+        if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+          event.preventDefault();
+          const next = tab === individualTab ? housesTab : individualTab;
+          next.focus();
+          switchTab(next === individualTab ? "individuals" : "houses");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
